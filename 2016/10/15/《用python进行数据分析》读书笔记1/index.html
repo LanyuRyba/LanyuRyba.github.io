@@ -4,18 +4,36 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>《用python进行数据分析》读书笔记1 | 蓝鱼ryba</title>
+  <title>蓝鱼ryba</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="猫会游泳吗？">
+  <meta name="description" content="title: 《用python进行数据分析》读书笔记1
+date: 2016-10-15 21：12：22
+python 数据分析
+引言
+-
+来自bit.ly的1.usa.gov数据（坑点和要点总结）
+1.报错Traceback (most recent call last)123in () ----&amp;gt; 1 records = [json.loads(line)for line in op">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《用python进行数据分析》读书笔记1">
+<meta property="og:title" content="蓝鱼ryba">
 <meta property="og:url" content="http://guanzixiang.cn/2016/10/15/《用python进行数据分析》读书笔记1/index.html">
 <meta property="og:site_name" content="蓝鱼ryba">
-<meta property="og:description" content="猫会游泳吗？">
-<meta property="og:updated_time" content="2016-10-15T02:44:10.025Z">
+<meta property="og:description" content="title: 《用python进行数据分析》读书笔记1
+date: 2016-10-15 21：12：22
+python 数据分析
+引言
+-
+来自bit.ly的1.usa.gov数据（坑点和要点总结）
+1.报错Traceback (most recent call last)123in () ----&amp;gt; 1 records = [json.loads(line)for line in op">
+<meta property="og:updated_time" content="2016-10-15T14:41:10.051Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《用python进行数据分析》读书笔记1">
-<meta name="twitter:description" content="猫会游泳吗？">
+<meta name="twitter:title" content="蓝鱼ryba">
+<meta name="twitter:description" content="title: 《用python进行数据分析》读书笔记1
+date: 2016-10-15 21：12：22
+python 数据分析
+引言
+-
+来自bit.ly的1.usa.gov数据（坑点和要点总结）
+1.报错Traceback (most recent call last)123in () ----&amp;gt; 1 records = [json.loads(line)for line in op">
   
   
     <link rel="icon" href="//favicon.ico">
@@ -152,25 +170,37 @@
       <input type="hidden" class="isFancy" />
     
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      《用python进行数据分析》读书笔记1
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <hr>
+<p>title: 《用python进行数据分析》读书笔记1</p>
+<p>date: 2016-10-15 21：12：22</p>
+<p>python 数据分析</p>
+<p>引言</p>
+<p>-</p>
+<p>来自bit.ly的1.usa.gov数据（坑点和要点总结）</p>
+<p>1.报错<figure class="highlight plain"><figcaption><span>Traceback (most recent call last)</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">in () </div><div class="line">----&gt; 1 records = [json.loads(line)for line in open(path)]</div></pre></td></tr></table></figure></p>
+<p>原因：</p>
+<p>path里的文件是我从网页上copy-paste过来的，原本utf8的格式瞬间改变了，可是书上用的文件还是utf8的啊！…………</p>
+<p>stack overflow的回答：</p>
+<p>The data in question contains one U+2019 RIGHT SINGLE QUOTATION MARK character, encoded to UTF-8. But you used copy-and-paste to save the data rather than save the text straight to disk.</p>
+<p>In doing so, somewhere along the way the data was decoded, then encoded again, to Windows Codepage 1252:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>u’\u2019’.encode(‘cp1252’)<br>‘\x92’<br>In other words, your data file is not the same. It probably contains the same data but using a different encoding.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>The JSON standard states data needs to be encoded to UTF-8, UTF-16 or UTF-32, with UTF-8 being the default, and that is what the Python json module will use if you don’t give it an encoding. Because you are feeding it CP-1252 data instead, the decoding fails.</p>
+<p>2.</p>
+
       
     </div>
     <div class="article-info article-info-index">
       
       <a href="/2016/10/15/《用python进行数据分析》读书笔记1/" class="archive-article-date">
-  	<time datetime="2016-10-15T02:44:09.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-15</time>
+  	<time datetime="2016-10-15T02:44:10.022Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-15</time>
 </a>
       
       
@@ -219,7 +249,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="《用python进行数据分析》读书笔记1" data-title="《用python进行数据分析》读书笔记1" data-url="http://guanzixiang.cn/2016/10/15/《用python进行数据分析》读书笔记1/"></div>
+	<div class="ds-thread" data-thread-key="《用python进行数据分析》读书笔记1" data-title="" data-url="http://guanzixiang.cn/2016/10/15/《用python进行数据分析》读书笔记1/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
