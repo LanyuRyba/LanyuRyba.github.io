@@ -150,25 +150,37 @@
       <div class="body-wrap">
         
   
-    <article id="post-把找实习当作一个项目来运作" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-《用python进行数据分析》读书笔记1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/18/《用python进行数据分析》读书笔记1/">《用python进行数据分析》读书笔记1</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="把找实习当作一个项目来运作"><a href="#把找实习当作一个项目来运作" class="headerlink" title="把找实习当作一个项目来运作"></a>把找实习当作一个项目来运作</h1><p>标签（空格分隔）： 项目管理</p>
-<hr>
-<p>##书写起因：<br>寒假在即，实习机会就在眼前，“走出去”的心意越发强烈和紧迫，然而我却低估了从了解公司和岗位到打下岗位要求的所有技能点再到制作出一份有竞争力的简历（或者说有竞争力的自己）所需的时间投入。几番下来，不仅时间安排无章法，造成时间的浪费，而且欲求进步而不得所带来的窒息感和压迫感让自己逃避，拖延。<br>    某一时刻，我终于意识到，这样一个过程本应以项目管理待之。<br>    就此记录下找实习的项目管理方针。</p>
-<p>##项目制定<br>第一步：</p>
+        <p>date: 2016-10-15 21：12：22<br>python 数据分析<br>引言<br>-<br>来自bit.ly的1.usa.gov数据（坑点和要点总结）<br>1.报错<figure class="highlight plain"><figcaption><span>Traceback (most recent call last)</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">in () </div><div class="line">----&gt; 1 records = [json.loads(line)for line in open(path)]</div></pre></td></tr></table></figure></p>
+<p>原因：<br>path里的文件是我从网页上copy-paste过来的，原本utf8的格式瞬间改变了，可是书上用的文件还是utf8的啊！…………<br>stack overflow的回答：<br>The data in question contains one U+2019 RIGHT SINGLE QUOTATION MARK character, encoded to UTF-8. But you used copy-and-paste to save the data rather than save the text straight to disk.<br>In doing so, somewhere along the way the data was decoded, then encoded again, to Windows Codepage 1252:</p>
+<blockquote>
+<p>u’\u2019’.encode(‘cp1252’)<br>‘\x92’</p>
+</blockquote>
+<p>In other words, your data file is not the same. It probably contains the same data but using a different encoding.<br>The JSON standard states data needs to be encoded to UTF-8, UTF-16 or UTF-32, with UTF-8 being the default, and that is what the Python json module will use if you don’t give it an encoding. Because you are feeding it CP-1252 data instead, the decoding fails.<br>2.</p>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/12/10/把找实习当作一个项目来运作/" class="archive-article-date">
-  	<time datetime="2016-12-10T12:45:32.744Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-10</time>
+      <a href="/2016/12/18/《用python进行数据分析》读书笔记1/" class="archive-article-date">
+  	<time datetime="2016-12-18T13:19:14.043Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-18</time>
 </a>
       
       
@@ -188,51 +200,25 @@
 
 
   
-    <article id="post-《用python进行数据分析》读书笔记1" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-把找实习当作一个项目来运作" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/15/《用python进行数据分析》读书笔记1/">《用python进行数据分析》读书笔记1</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>date: 2016-10-15 21：12：22</p>
-<p>python 数据分析</p>
-<p>引言</p>
-<p>-</p>
-<p>来自bit.ly的1.usa.gov数据（坑点和要点总结）</p>
-<p>1.报错<figure class="highlight plain"><figcaption><span>Traceback (most recent call last)</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">in () </div><div class="line">----&gt; 1 records = [json.loads(line)for line in open(path)]</div></pre></td></tr></table></figure></p>
-<p>原因：</p>
-<p>path里的文件是我从网页上copy-paste过来的，原本utf8的格式瞬间改变了，可是书上用的文件还是utf8的啊！…………</p>
-<p>stack overflow的回答：</p>
-<p>The data in question contains one U+2019 RIGHT SINGLE QUOTATION MARK character, encoded to UTF-8. But you used copy-and-paste to save the data rather than save the text straight to disk.</p>
-<p>In doing so, somewhere along the way the data was decoded, then encoded again, to Windows Codepage 1252:</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>u’\u2019’.encode(‘cp1252’)<br>‘\x92’<br>In other words, your data file is not the same. It probably contains the same data but using a different encoding.</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>The JSON standard states data needs to be encoded to UTF-8, UTF-16 or UTF-32, with UTF-8 being the default, and that is what the Python json module will use if you don’t give it an encoding. Because you are feeding it CP-1252 data instead, the decoding fails.</p>
-<p>2.</p>
+        <h1 id="把找实习当作一个项目来运作"><a href="#把找实习当作一个项目来运作" class="headerlink" title="把找实习当作一个项目来运作"></a>把找实习当作一个项目来运作</h1><p>标签（空格分隔）： 项目管理</p>
+<hr>
+<p>##书写起因：<br>寒假在即，实习机会就在眼前，“走出去”的心意越发强烈和紧迫，然而我却低估了从了解公司和岗位到打下岗位要求的所有技能点再到制作出一份有竞争力的简历（或者说有竞争力的自己）所需的时间投入。几番下来，不仅时间安排无章法，造成时间的浪费，而且欲求进步而不得所带来的窒息感和压迫感让自己逃避，拖延。<br>    某一时刻，我终于意识到，这样一个过程本应以项目管理待之。<br>    就此记录下找实习的项目管理方针。</p>
+<p>##项目制定<br>第一步：</p>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/10/15/《用python进行数据分析》读书笔记1/" class="archive-article-date">
-  	<time datetime="2016-10-15T02:44:10.022Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-15</time>
+      <a href="/2016/12/10/把找实习当作一个项目来运作/" class="archive-article-date">
+  	<time datetime="2016-12-10T12:45:32.744Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-10</time>
 </a>
       
       
